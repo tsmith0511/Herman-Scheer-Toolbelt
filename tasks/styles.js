@@ -8,6 +8,7 @@ const $ = plugins()
 
 gulp.task('styles', function() {
   return gulp.src(config.client.sass)
+    //if config/assets/default.js is not false (so true) include sourcemaps, if not (so false) skip it
     .pipe(!config.minify ? $.sourcemaps.init() : $.util.noop())
     .pipe($.sass({
       indentedSyntax: true,
